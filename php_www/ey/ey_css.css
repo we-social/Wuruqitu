@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+#blackbird label {
+	width: 100%;
+}
+#blackbird input[type="checkbox"] {
+	margin: 4px;
+}
+
+body.ey-lock {
+	/* screen lock */
+	overflow: hidden;
+}
+#ey_overlay {
+	background-color: white;
+	opacity: 0.3;
+	position: absolute;
+	width: 9999px;
+	height: 9999px;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+}
+
+.alert {
+	position: absolute;
+	z-index: 9999;
+	font-size: 14px;
+	overflow-x: hidden;
+}
+.alert .close {
+	z-index: 999;
+}
+
+.progress {
+	display: none;
+	position: absolute;
+	width: 50%;
+	height: 25px;
+}
+.progress .bar {
+	width: 100%;
+	height: 100%;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#blackbird {
+	z-index: 999999;
+}

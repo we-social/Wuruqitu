@@ -1,0 +1,14 @@
+/php_www/conn/db_reset.danger.php
+/php_www/conn/dbvars.php
+/php_www/min/tmp
+/php_www/ready_to_up/*
+!/php_www/ready_to_up/001.*
+!/php_www/ready_to_up/002.*
+!/php_www/ready_to_up/003.*
+!/php_www/ready_to_up/004.*
+!/php_www/ready_to_up/005.*
+!/php_www/ready_to_up/006.*
+!/php_www/ready_to_up/007.*
+/php_www/Smarty/cache
+/php_www/Smarty/templates_c
+/php_www/up
