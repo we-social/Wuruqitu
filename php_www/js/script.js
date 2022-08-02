@@ -276,7 +276,12 @@
 			e.preventDefault();
 			function ajaxHandler(d) {
 				log.debug(d);
+
+				// fix: 坑 浏览器插件 污染返回json
+				// eg. {"state":"pass","msg":"\u4e0a\u4f20\u6210\u529f\u3002"}<audio controls="controls" style="display: none;"></audio>
+				d = d.replace(/[^}]+$/, '')
 				eval('d=' + d);
+
 				log.info(d.msg);
 
 				var pass = d.state === 'pass';

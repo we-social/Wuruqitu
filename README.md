@@ -1,7 +1,8 @@
 # Wuruqitu「误入歧图」
 
-- [ ] 修复form ajax /up.php
+- [ ] 部署到fly.io
 - [ ] 修复get_location by ip
+- [x] 修复form ajax /up.php
 - [x] editorconfig, prettier 格式化
 - [x] 支持docker运行 docker-compose
 	- [x] 修复mysql charset
