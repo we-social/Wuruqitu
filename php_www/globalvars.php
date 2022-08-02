@@ -5,12 +5,17 @@ date_default_timezone_set('PRC');
 header('Content-Type: text/html; charset=utf-8');
 
 define('SERVER_IP', gethostbyname($_SERVER['SERVER_NAME']));
-define('IS_LOCAL', SERVER_IP !== 'xxx.xxx.x.xxx');
+
+// define('IS_LOCAL', SERVER_IP !== 'xxx.xxx.x.xxx');
+// docker
+define('IS_LOCAL', true);
 
 define('PRJ_NAME', 'Wuruqitu');
 define('PRJ_NAME_CN', '误入岐图');
 define('PRJ_DIR', IS_LOCAL? '/'.PRJ_NAME: '');
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] .PRJ_DIR);
+
+// define('ROOT', $_SERVER['DOCUMENT_ROOT'] .PRJ_DIR);
+define('ROOT', dirname(__FILE__));
 
 define('INTV_UP', -1*60*60);	// 1h
 define('INTV_COMM', 1*60*60);	// 1h
@@ -62,6 +67,7 @@ function rand_key($len) {
 }
 
 function object_to_array($obj){
+	$arr = array();
 	$_arr = is_object($obj) ? get_object_vars($obj) : $obj;
 	foreach ($_arr as $key => $val){
 		$val = (is_array($val) || is_object($val)) ? $this->object_to_array($val) : $val;

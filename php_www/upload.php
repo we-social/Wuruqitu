@@ -1,4 +1,5 @@
 <?php
+require_once(ROOT. '/conn/httpclient.php');
 require(ROOT. '/plugin/img2thumb.php');
 require(ROOT. '/plugin/GIFCoders/decode.php');
 require(ROOT. '/plugin/GIFCoders/encode.php');
@@ -16,7 +17,7 @@ function upload($path, $note, $deg=0) {
 	$r = mysql_fetch_array($res);
 	$total = $r['total'];
 	if ($total < NUM_MAX_UP) {	// insert
-		mysql_query("INSERT INTO ". TB_UP ." (" .
+		$result = mysql_query("INSERT INTO ". TB_UP ." (" .
 					"uppic," .
 					"upnote," .
 					"upip," .
@@ -28,11 +29,17 @@ function upload($path, $note, $deg=0) {
 					$loc ."','" .
 					$time .
 				"')");
+		if (!$result) {
+			die('Invalid query: ' . mysql_error());
+		}
 		$id = mysql_insert_id();
 	} else {	// update
 		// get old
 		$res = mysql_query("SELECT upid, uppic, upat FROM ". TB_UP
 							. " ORDER BY upcomms, upgoods, upat LIMIT 1");
+		if (!$res) {
+			die('Invalid query: ' . mysql_error());
+		}
 		$r = mysql_fetch_array($res);
 		$id = $r['upid'];
 		$pic = $r['uppic'];
@@ -50,7 +57,7 @@ function upload($path, $note, $deg=0) {
 
 	$ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 	$oldpath = $path;
-	$path = rand_key(16). $ext;
+	$path = DIR_UP_READY .'/'. rand_key(16). $ext;
 	rename($oldpath, $path);
 
 	$new_name = to_3_bits($id). ".{$ext}";

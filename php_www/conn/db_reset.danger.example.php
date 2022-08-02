@@ -1,7 +1,6 @@
 <?php
 require('../globalvars.php');
 require(ROOT. '/conn/dbc.php');
-require(ROOT. '/conn/httpclient.php');
 require(ROOT. '/upload.php');
 
 require_once(ROOT. '/debug.php');

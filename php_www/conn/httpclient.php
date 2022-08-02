@@ -2,6 +2,10 @@
 require(ROOT. '/plugin/HttpClient.class.php');
 
 function get_location($ip) {
+
+  // fixme:
+  return '未知网友';
+
 	$ret = false;
 	try {
 		$url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip='. $ip;

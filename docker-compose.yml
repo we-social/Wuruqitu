@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  mysql:
+    image: mysql:5
+    volumes:
+      - ./config/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db_app
+      # - MYSQL_USER=test_user
+      # - MYSQL_PASSWORD=test_password
+    ports:
+      - "3306:3306"
+  web:
+    build: .
+    volumes:
+      - ./config/php.ini:/usr/local/etc/php/php.ini
+      - ./php_www:/var/www/html
+      - ./php_www/tmp:/tmp
+    privileged: true
+    depends_on:
+      - mysql
+    ports:
+      - "80:80"

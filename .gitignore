@@ -12,3 +12,6 @@
 /php_www/Smarty/cache
 /php_www/Smarty/templates_c
 /php_www/up
+
+/php_www/tmp
+/data/mysql
