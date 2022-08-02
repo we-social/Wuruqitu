@@ -3,8 +3,19 @@ require(ROOT. '/plugin/HttpClient.class.php');
 
 function get_location($ip) {
 
-  // fixme:
-  return '未知网友';
+	// fixme:
+	// return '未知网友';
+	$arr = array(
+		'北京',
+		'长沙',
+		'重庆',
+		'上海',
+		'深圳',
+		'广州',
+		'福建',
+		'内蒙古'
+	);
+	return $arr[rand(0, count($arr))] .'网友';
 
 	$ret = false;
 	try {

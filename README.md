@@ -1,8 +1,10 @@
 # Wuruqitu「误入歧图」
 
+<img src="https://github.com/we-social/Wuruqitu/raw/master/WX20220802-224719.png">
+
 - [ ] 部署到fly.io
 - [ ] 修复get_location by ip
-- [x] 修复form ajax /up.php
+- [x] 修复图片上传返回值解析失败 浏览器插件坑
 - [x] editorconfig, prettier 格式化
 - [x] 支持docker运行 docker-compose
 	- [x] 修复mysql charset
